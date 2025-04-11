@@ -2,13 +2,12 @@
 > Um nome provisório que resuma bem a ideia. Seja criativo, mas claro!
 
 ## 👨‍🎓 Integrantes
-- Nome do Estudante 1
-- Nome do Estudante 2
-- ...
+- Thiago Trajano Farias
+- Luiza Bruna Apolinário
+- Lucas Nogueira Aiello
 
 ## 💡 Ideia Principal
-Descreva em poucas linhas o que o projeto propõe fazer. 
-Pense como se estivesse explicando para alguém fora da área de tecnologia.
+Criar uma assistente de analise contextual
 
 ## 🎯 Objetivos
 - Liste de forma clara o que o sistema pretende resolver ou melhorar.
