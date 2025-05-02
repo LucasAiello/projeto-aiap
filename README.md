@@ -1,5 +1,5 @@
 # Nome do Projeto
-> Um nome provisório que resuma bem a ideia. Seja criativo, mas claro!
+> A definir
 
 ## 👨‍🎓 Integrantes
 - Thiago Trajano Farias
@@ -7,39 +7,36 @@
 - Lucas Nogueira Aiello
 
 ## 💡 Ideia Principal
-Criar uma assistente de analise contextual
+Criar uma assistente de analise contextual de código que ajude no desenvolvimento, juntando o conhecimento técnico do programador com o as regras de negócio.
 
 ## 🎯 Objetivos
-- Liste de forma clara o que o sistema pretende resolver ou melhorar.
-- Pode usar bullets ou parágrafos curtos.
+- Guiar o programador no desenvolvimento de uma issue/task explicando a regra de negócio e como ela se aplica na base de código.
+- Ajudar na revisão de código nos MRs
 
 ## 👥 Público-Alvo
-Quem se beneficia com esse projeto? Um setor específico? Um tipo de usuário?
+- Desenvolvedores que participam de projetos com regras de negócio de um nicho específico em que normalmente são necessários especialistas na regra de negócio para o desenvolvimento
 
 ## 🤖 Agentes Envolvidos
 Liste os agentes que existirão no sistema e suas funções.
 Exemplo:
-- Agente A: coleta dados
-- Agente B: toma decisões
-- Agente C: executa ações no ambiente
+- Agente Monitor de Solicitações: Monitora o e-mail e verifica se há solicitações dos usuários.
+- Agente Respondente : Responde as solicitações dos usuários na plataforma de versionamento de código.
 
 ## 🧱 Tecnologias Pretendidas
-- Linguagem de programação
-- Bibliotecas e frameworks
-- Ferramentas para teste, simulação, visualização, etc.
+- A definir
 
-> Justifique, sempre que possível, **por que escolheu cada ferramenta**.
 
 ## 📦 Entradas e Saídas Esperadas
 **Entradas:**
-- Quais dados o sistema recebe?
+- Qual a solicitação do usuário através de prompt.
 
 **Saídas:**
-- Quais ações ou informações ele gera?
+- Resposta a solicitação do usuário.
 
 ## 🔁 Interação entre os Agentes
-Descreva como os agentes vão se comunicar ou se coordenar.
-Pode ser uma descrição textual ou um fluxograma em breve.
+1. O usuário menciona o usuário do sistema multiagente na plataforma de versionamento de código em uma issue (Ex: @Agente) e no comentário fornece uma solicitação que será o prompt.
+2. O agente monitor verifica no e-mail cadastrado na plataforma de versionamento de código se há novas solicitações, se houver comunica o agente que irá responder as solicitações, fornecendo a solicitação como prompt.
+3. O agente responsável por responder aos usuários entra na plataforma de versionamento, e responde no comentário da issue/task a solicitação realizada, após isso desativa as notificações da issue para não receber nada que não seja uma menção direta.
 
 ## 🗂️ Organização e Planejamento do Projeto
 O progresso deste projeto será monitorado através do **GitHub Projects**.
@@ -53,7 +50,7 @@ Cada integrante deve ser responsável por pelo menos uma tarefa no quadro.
 Use etiquetas (labels) e comentários para detalhar o andamento e as decisões.
 
 ## 📌 Status Inicial do Projeto
-- [ ] Ideia discutida e validada com o professor
+- [X] Ideia discutida e validada com o professor
 - [ ] Estrutura básica do repositório criada
 - [ ] Quadro no GitHub Projects criado
 - [ ] Primeiras tarefas definidas e atribuídas
@@ -65,11 +62,3 @@ Este repositório poderá incluir:
 - Scripts de testes ou simulações
 - Resultados e conclusões finais
 
-## 👨‍🏫 Acompanhamento pelo Professor
-Para que o professor possa acompanhar e orientar o andamento do projeto, **adicione o usuário `igorbarcosta` como colaborador do repositório.**
-
-### Como fazer:
-1. Vá até a aba **"Settings"** do seu repositório.
-2. Clique em **"Collaborators"** no menu lateral.
-3. Digite o nome de usuário: `igorbarcosta`
-4. Clique em **"Add collaborator"** e confirme.
