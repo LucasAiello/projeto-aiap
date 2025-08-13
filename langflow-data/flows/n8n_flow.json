@@ -1,0 +1,113 @@
+{
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "a2d9143e-2ada-488d-8e9f-c952bfc760f8",
+        "options": {
+          "allowedOrigins": "*",
+          "rawBody": true
+        }
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -528,
+        -224
+      ],
+      "id": "e93359f5-a3be-4346-b17a-cbe056b978fa",
+      "name": "Webhook",
+      "webhookId": "a2d9143e-2ada-488d-8e9f-c952bfc760f8",
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "fieldsToAggregate": {
+          "fieldToAggregate": [
+            {
+              "fieldToAggregate": "body.data"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        -176,
+        -224
+      ],
+      "id": "c8ad3377-4052-4be9-97dd-835cf9a1a0b6",
+      "name": "Aggregate"
+    },
+    {
+      "parameters": {
+        "operation": "createComment",
+        "owner": {
+          "__rl": true,
+          "value": "https://github.com/hellper-bot",
+          "mode": "url"
+        },
+        "repository": {
+          "__rl": true,
+          "value": "https://github.com/hellper-bot/teste",
+          "mode": "url"
+        },
+        "issueNumber": 4,
+        "body": "={{ $json.data[0] }}"
+      },
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1.1,
+      "position": [
+        96,
+        -224
+      ],
+      "id": "2a145550-08e9-4e01-b659-25581fd598cb",
+      "name": "Create a comment on an issue",
+      "webhookId": "deb3575a-944c-497e-b1e0-fb92f086b102",
+      "credentials": {
+        "githubApi": {
+          "id": "7TySN4ti7JNExqXH",
+          "name": "GitHub account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate": {
+      "main": [
+        [
+          {
+            "node": "Create a comment on an issue",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "252445e4-a4b4-4267-b479-d237a724de6f",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "8063ff098695044287bebd60a453bc79d6e270d98de229bd0d75c20b54595f5b"
+  },
+  "id": "BYaoD4LrdKa7eGnC",
+  "tags": []
+}
