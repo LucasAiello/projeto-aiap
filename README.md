@@ -1,5 +1,5 @@
 # Nome do Projeto
-> A definir
+**Hellper Bot** - Um assistente que atua no suporte ao desenvolvedor.
 
 ## 👨‍🎓 Integrantes
 - Thiago Trajano Farias
@@ -7,58 +7,45 @@
 - Lucas Nogueira Aiello
 
 ## 💡 Ideia Principal
-Criar uma assistente de analise contextual de código que ajude no desenvolvimento, juntando o conhecimento técnico do programador com o as regras de negócio.
+Criar uma assistente de análise contextual de código que auxilie no desenvolvimento, combinando o conhecimento técnico do programador com as regras de negócio da aplicação.
 
 ## 🎯 Objetivos
-- Guiar o programador no desenvolvimento de uma issue/task explicando a regra de negócio e como ela se aplica na base de código.
-- Ajudar na revisão de código nos MRs
+- Guiar o programador no desenvolvimento de uma issue/task, explicando a regra de negócio e como ela se aplica na base de código.
 
 ## 👥 Público-Alvo
-- Desenvolvedores que participam de projetos com regras de negócio de um nicho específico em que normalmente são necessários especialistas na regra de negócio para o desenvolvimento
+- Desenvolvedores que atuam em projetos com regras de negócio específicas, que normalmente demandam a presença de especialistas para orientar o desenvolvimento.
 
 ## 🤖 Agentes Envolvidos
-Liste os agentes que existirão no sistema e suas funções.
-Exemplo:
-- Agente Monitor de Solicitações: Monitora o e-mail e verifica se há solicitações dos usuários.
-- Agente Respondente : Responde as solicitações dos usuários na plataforma de versionamento de código.
+- **Agente de Regra de Negócio**: Recebe, processa e interpreta dados relacionados às regras de negócio do projeto por meio de um fluxo RAG.
+- **Agente Especialista em Código**: Analisa a base de código, identifica trechos relevantes e fornece orientações técnicas considerando o contexto da regra de negócio.
 
-## 🧱 Tecnologias Pretendidas
-- A definir
+## 🧱 Tecnologias utilizadas
+- **Langflow** – Ferramenta visual para criar e gerenciar fluxos de IA com LLMs, utilizada para implementar o pipeline de RAG e orquestrar a interação entre agentes.
+- **n8n** – Plataforma de automação e orquestração de workflows, usada para integrar diferentes sistemas e disparar execuções automatizadas.
+- **Ollama** – Plataforma para rodar modelos de linguagem localmente, utilizada para gerar embeddings com o modelo `nomic-embed-text`.
+
+# Guia para Rodar o Projeto com Langflow, n8n e Ollama
+
+## 1. Pré-requisitos
+Antes de começar, você precisa ter:
+- **Docker** instalado e funcionando  
+- **Ollama** instalado na sua máquina  
+- A pasta do repositório `projeto-aiap` clonada ou acessível  
+
+---
+
+## 2. Preparar o Ollama
+O **Ollama** é responsável por fornecer o modelo de embeddings para o Langflow.
+
+1. **Iniciar o servidor do Ollama**:
+   ```bash
+   ollama serve
+   ollama pull nomic-embed-text
+   ollama run nomic-embed-text
 
 
-## 📦 Entradas e Saídas Esperadas
-**Entradas:**
-- Qual a solicitação do usuário através de prompt.
+## 3. Para rodar o langflow no docker
+`docker run --rm -it   --network=host   -v <path_ate_a_raiz_do_repositorio>/projeto-aiap/RAG:/app/data   -v <path_ate_a_raiz_do_repositorio>/projeto-aiap/langflow-data/flows:/app/flows   -e OLLAMA_BASE_URL=http://localhost:11434   langflowai/langflow:latest` 
 
-**Saídas:**
-- Resposta a solicitação do usuário.
-
-## 🔁 Interação entre os Agentes
-1. O usuário menciona o usuário do sistema multiagente na plataforma de versionamento de código em uma issue (Ex: @Agente) e no comentário fornece uma solicitação que será o prompt.
-2. O agente monitor verifica no e-mail cadastrado na plataforma de versionamento de código se há novas solicitações, se houver comunica o agente que irá responder as solicitações, fornecendo a solicitação como prompt.
-3. O agente responsável por responder aos usuários entra na plataforma de versionamento, e responde no comentário da issue/task a solicitação realizada, após isso desativa as notificações da issue para não receber nada que não seja uma menção direta.
-
-## 🗂️ Organização e Planejamento do Projeto
-O progresso deste projeto será monitorado através do **GitHub Projects**.
-
-> Acesse a aba "Projects" do repositório para acompanhar:
-- Tarefas pendentes
-- Tarefas em andamento
-- Tarefas concluídas
-
-Cada integrante deve ser responsável por pelo menos uma tarefa no quadro.
-Use etiquetas (labels) e comentários para detalhar o andamento e as decisões.
-
-## 📌 Status Inicial do Projeto
-- [X] Ideia discutida e validada com o professor
-- [ ] Estrutura básica do repositório criada
-- [ ] Quadro no GitHub Projects criado
-- [ ] Primeiras tarefas definidas e atribuídas
-
-## 📄 Documentação Futura
-Este repositório poderá incluir:
-- Diagramas de arquitetura
-- Relatórios parciais de progresso
-- Scripts de testes ou simulações
-- Resultados e conclusões finais
-
+## 4. Para rodar o n8n no docker
+`docker run --network=host docker.n8n.io/n8nio/n8n:latest`
