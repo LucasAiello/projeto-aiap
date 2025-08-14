@@ -17,7 +17,7 @@ Criar uma assistente de análise contextual de código que auxilie no desenvolvi
 
 ## 🤖 Agentes Envolvidos
 - **Agente de Regra de Negócio**: Recebe, processa e interpreta dados relacionados às regras de negócio do projeto por meio de um fluxo RAG.
-- **Agente Especialista em Código**: Analisa a base de código, identifica trechos relevantes e fornece orientações técnicas considerando o contexto da regra de negócio.
+- **Agente Especialista em Código**: Analisa a base de código, identifica trechos relevantes e fornece orientações técnicas.
 
 ## 🧱 Tecnologias utilizadas
 - **Langflow** – Ferramenta visual para criar e gerenciar fluxos de IA com LLMs, utilizada para implementar o pipeline de RAG e orquestrar a interação entre agentes.
