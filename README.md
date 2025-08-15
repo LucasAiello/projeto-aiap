@@ -16,7 +16,7 @@ Criar uma assistente de análise contextual de código que auxilie no desenvolvi
 - Desenvolvedores que atuam em projetos com regras de negócio específicas, que normalmente demandam a presença de especialistas para orientar o desenvolvimento.
 
 ## 🤖 Agentes Envolvidos
-- **Agente de Regra de Negócio**: Recebe, processa e interpreta dados relacionados às regras de negócio do projeto por meio de um fluxo RAG.
+- **Agente Especialista em Regra de Negócio**: Recebe, processa e interpreta dados relacionados às regras de negócio do projeto por meio de um fluxo RAG.
 - **Agente Especialista em Código**: Analisa a base de código, identifica trechos relevantes e fornece orientações técnicas.
 
 ## 🧱 Tecnologias utilizadas
